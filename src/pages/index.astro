@@ -30,11 +30,3 @@ import ContactSection from "../components/ContactSection.astro";
         }
     }
 </style>
-
-<script>
-    import {diffYears} from "@formkit/tempo";
-
-    const years = document.getElementById('years');
-    const expYears = diffYears(new Date(), new Date(2006, 7, 1));
-    years.innerHTML = `${expYears}+`;
-</script>
