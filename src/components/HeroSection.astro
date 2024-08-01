@@ -25,5 +25,5 @@
 
     const years = document.getElementById('years');
     const expYears = diffYears(new Date(), new Date(2006, 7, 1));
-    years.innerHTML = `${expYears}+`;
+    if (years) years.innerHTML = `${expYears}+`;
 </script>
