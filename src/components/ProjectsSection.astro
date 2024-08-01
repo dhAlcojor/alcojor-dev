@@ -54,17 +54,43 @@ import AstroLogo from "./logos/AstroLogo.astro";
                 </ul>
             </article>
         </div>
+        <div id="current-projects" class="flex flex-col justify-center items-center">
+            <h3>Proyectos entre manos</h3>
+            <div class="flex w-full mt-4">
+                <div class="flex-1">
+                    <p>
+                        Me ha costado algún tiempo, pero al final me he decidido por el desarrollo de videojuegos porque combinan todas mis pasiones:
+                    </p>
+                    <ul class="flex gap-x-4 flex-wrap">
+                        <li>La programación</li>
+                        <li>La creatividad</li>
+                        <li>La ilustración</li>
+                        <li>La animación</li>
+                        <li>La escritura</li>
+                        <li>El storytelling</li>
+                        <li>La resolución de problemas complejos</li>
+                    </ul>
+                </div>
+                <div class="flex-1">
+                    <p>Y por eso estoy trabajando en:</p>
+                    <ul>
+                        <li>Un aRPG que estoy desarrollando con Godot Engine</li>
+                        <li>Un jRPG que estoy desarrollando con RPG Maker MV</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <style>
-    article {
-        h3 {
-            @apply text-2xl font-bold text-center;
-        }
+    h3 {
+        @apply text-2xl font-bold text-center;
+    }
 
+    article {
         ul {
-            @apply grid grid-cols-4 gap-4;
+            @apply list-none grid grid-cols-4 gap-4;
 
             li {
                 @apply w-24;
@@ -77,6 +103,12 @@ import AstroLogo from "./logos/AstroLogo.astro";
             figcaption {
                 @apply text-sm text-center;
             }
+        }
+    }
+
+    #current-projects {
+        ul {
+            @apply list-disc list-inside mt-2 ml-4;
         }
     }
 </style>
