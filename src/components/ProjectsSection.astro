@@ -1,0 +1,82 @@
+---
+import RestLogo from '../components/logos/RestLogo.astro';
+import TypeScriptLogo from "./logos/TypeScriptLogo.astro";
+import JavaScriptLogo from "./logos/JavaScriptLogo.astro";
+import ReactLogo from "./logos/ReactLogo.astro";
+import GraphQLLogo from "./logos/GraphQLLogo.astro";
+import NodeLogo from "./logos/NodeLogo.astro";
+import NextLogo from "./logos/NextLogo.astro";
+import TailwindLogo from "./logos/TailwindLogo.astro";
+import AngularLogo from "./logos/AngularLogo.astro";
+import AndroidLogo from "./logos/AndroidLogo.astro";
+import FirebaseLogo from "./logos/FirebaseLogo.astro";
+import GodotLogo from "./logos/GodotLogo.astro";
+import FlutterLogo from "./logos/FlutterLogo.astro";
+import AstroLogo from "./logos/AstroLogo.astro";
+---
+
+<section class="bg-gradient-to-b from-orange-400 to-red-500">
+    <div class="flex flex-col justify-center items-center gap-8">
+        <h2>Proyectos</h2>
+        <p>
+            Soy una persona muy curiosa y me gustan los retos, así que siempre estoy trabajando en todo tipo de proyectos personales.
+        </p>
+        <p>
+            Estas son algunas de las tecnologías y frameworks que he utilizado en los proyectos, en orden de más utilizados a menos utilizados:
+        </p>
+        <div class="flex justify-evenly w-full">
+            <article class="flex flex-col gap-4">
+                <h3>En proyectos profesionales</h3>
+                <ul>
+                    <li><RestLogo /></li>
+                    <li><TypeScriptLogo /></li>
+                    <li><JavaScriptLogo /></li>
+                    <li><ReactLogo /></li>
+                    <li><GraphQLLogo /></li>
+                    <li><NodeLogo /></li>
+                    <li><NextLogo /></li>
+                </ul>
+            </article>
+            <article class="flex flex-col gap-4">
+                <h3>En proyectos personales</h3>
+                <ul>
+                    <li><TypeScriptLogo /></li>
+                    <li><JavaScriptLogo /></li>
+                    <li><TailwindLogo /></li>
+                    <li><AngularLogo /></li>
+                    <li><AndroidLogo /></li>
+                    <li><FirebaseLogo /></li>
+                    <li><NodeLogo /></li>
+                    <li><GodotLogo /></li>
+                    <li><FlutterLogo /></li>
+                    <li><NextLogo /></li>
+                    <li><AstroLogo /></li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<style>
+    article {
+        h3 {
+            @apply text-2xl font-bold text-center;
+        }
+
+        ul {
+            @apply grid grid-cols-4 gap-4;
+
+            li {
+                @apply w-24;
+            }
+
+            svg {
+                @apply h-12 w-12 mx-auto;
+            }
+
+            figcaption {
+                @apply text-sm text-center;
+            }
+        }
+    }
+</style>
