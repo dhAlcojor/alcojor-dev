@@ -1,5 +1,39 @@
+---
+import TypeScriptLogo from "./logos/TypeScriptLogo.astro";
+import TailwindLogo from "./logos/TailwindLogo.astro";
+import AstroLogo from "./logos/AstroLogo.astro";
+---
 <section id="about" class="bg-gradient-to-b from-red-500 to-purple-500">
     <div class="flex flex-col justify-center items-center gap-8">
         <h2>Acerca de</h2>
+        <p class="">
+            Esta página ha sido desarrollada con <AstroLogo />
+        </p>
+        <p>Astro es un framework de desarrollo web moderno y rápido del que me he enamorado recientemente.
+        </p>
+        <p>
+            También he usado algunas herramientas de desarrollo web, como:
+        </p>
+        <ul>
+            <li><TypeScriptLogo /></li>
+            <li><TailwindLogo /></li>
+        </ul>
     </div>
 </section>
+<style>
+    ul {
+        @apply list-none flex justify-center gap-4;
+
+        li {
+            @apply w-24 hover:scale-150 transition-transform duration-300;
+        }
+
+        svg {
+            @apply h-12 w-12 mx-auto;
+        }
+
+        figcaption {
+            @apply text-sm text-center;
+        }
+    }
+</style>
