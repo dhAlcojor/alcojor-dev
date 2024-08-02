@@ -43,16 +43,16 @@ import ContactSection from "../components/ContactSection.astro";
         navLinks.forEach((navLink) => {
             navLink.classList.remove('active');
         });
-        entries.forEach((entry) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
             // get the corresponding navigation link
             let navLink = document.querySelector(`a[href="/#${entry.target.id}"]`);
 
             if (entry.isIntersecting) {
                 // if already in viewport, add `active` class
-                navLink.classList.add('active');
+                navLink?.classList.add('active');
             } else {
                 // if not in viewport, remove `active` class
-                navLink.classList.remove('active');
+                navLink?.classList.remove('active');
             }
         });
     };
