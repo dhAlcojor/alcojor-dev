@@ -21,7 +21,7 @@ const {title} = Astro.props;
             <img class="h-5 w-5 mr-1 lg:h-8 lg:w-8 inline-block align-baseline lg:-mr-2 border-[1px] border-black rounded-full" src="/images/profile.png" alt="Foto de perfil de Daniel H. Alcojor"/>
             <a href="/">Daniel H. Alcojor</a>
         </h1>
-        <nav class="hidden lg:block">
+        <nav id="page-navigation" class="hidden lg:block">
             <ul class="flex">
                 <li><a href="/#home">Inicio</a></li>
                 <li><a href="/#projects">Proyectos</a></li>
@@ -50,7 +50,29 @@ body {
 }
 
 p {
-    @apply lg:w-1/2 lg:mx-auto lg:text-center;
+    @apply w-full text-left leading-tight lg:w-1/2 lg:mx-auto lg:text-center lg:leading-normal;
+}
+
+ul.logo-list {
+    @apply list-none flex flex-wrap gap-2 justify-center lg:gap-4;
+
+    li {
+        @apply w-14 lg:w-24;
+    }
+
+    svg {
+        @apply h-8 w-8 lg:h-12 lg:w-12 mx-auto;
+    }
+
+    figcaption {
+        @apply text-xs lg:text-sm text-center;
+    }
+}
+
+section#home, section#projects {
+    p {
+        @apply lg:w-full lg:text-left;
+    }
 }
 </style>
 <style>
@@ -61,7 +83,7 @@ p {
             @apply bg-white/40;
         }
 
-        &.active, &:focus {
+        &:active, &:focus, &.active {
             @apply bg-white/70 font-bold;
         }
     }
@@ -71,25 +93,4 @@ p {
         }
     }
 </style>
-<script is:inline>
-    function markActiveSection(sectionName) {
-        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-        document.querySelector(`nav a[href="/#${sectionName}"]`).classList.add('active');
-    }
-    // Scroll to the current section when the page loads
-    const currentSection = window.location.hash.slice(1);
-    console.log("Section when loading:", currentSection);
-    if (currentSection) {
-        document.querySelector(`section#${currentSection}`).scrollIntoView({behavior: 'smooth'});
-        markActiveSection(currentSection);
-    } else {
-        markActiveSection('home');
-    }
-    // Mark the current section when the user clicks on a link
-    document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', e => {
-        const sectionName = e.target.getAttribute('href').split("/#")[1];
-        console.log("Section when clicking:", sectionName);
-        document.querySelector(`section#${sectionName}`).scrollIntoView({behavior: 'smooth'});
-        markActiveSection(sectionName);
-    }));
-</script>
+

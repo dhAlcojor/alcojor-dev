@@ -18,15 +18,49 @@ import ContactSection from "../components/ContactSection.astro";
 <style>
     main {
         section {
-            @apply h-screen w-full snap-start snap-always;
+            @apply h-screen w-full snap-start snap-always py-12 px-4;
 
             > div {
-                @apply max-w-[1200px] h-full mx-auto flex justify-center items-center gap-4;
+                @apply lg:max-w-[1200px] h-full mx-auto flex justify-center items-center gap-4;
             }
 
             h2 {
-                @apply text-4xl font-bold;
+                @apply text-2xl lg:text-4xl font-bold;
             }
         }
     }
 </style>
+<script>
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('#page-navigation a');
+
+    let observerOptions = {
+        root: null, // viewport
+        threshold: 0.5, // halfway through
+    };
+
+    let handleIntersection = (entries) => {
+        navLinks.forEach((navLink) => {
+            navLink.classList.remove('active');
+        });
+        entries.forEach((entry) => {
+            // get the corresponding navigation link
+            let navLink = document.querySelector(`a[href="/#${entry.target.id}"]`);
+
+            if (entry.isIntersecting) {
+                // if already in viewport, add `active` class
+                navLink.classList.add('active');
+            } else {
+                // if not in viewport, remove `active` class
+                navLink.classList.remove('active');
+            }
+        });
+    };
+
+    let observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    // observe each section
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
+</script>

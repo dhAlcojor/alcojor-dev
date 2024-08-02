@@ -1,9 +1,6 @@
 ---
-import RestLogo from '../components/logos/RestLogo.astro';
 import TypeScriptLogo from "./logos/TypeScriptLogo.astro";
 import JavaScriptLogo from "./logos/JavaScriptLogo.astro";
-import ReactLogo from "./logos/ReactLogo.astro";
-import GraphQLLogo from "./logos/GraphQLLogo.astro";
 import NodeLogo from "./logos/NodeLogo.astro";
 import NextLogo from "./logos/NextLogo.astro";
 import TailwindLogo from "./logos/TailwindLogo.astro";
@@ -15,69 +12,52 @@ import FlutterLogo from "./logos/FlutterLogo.astro";
 import AstroLogo from "./logos/AstroLogo.astro";
 ---
 
-<section id="projects" class="bg-gradient-to-b from-orange-400 to-red-500">
-    <div class="flex flex-col justify-center items-center gap-8">
+<section id="projects" class="bg-gradient-to-b from-orange-400 to-red-500 overflow-y-scroll">
+    <div class="flex flex-col lg:justify-center lg:items-center gap-8">
         <h2>Proyectos</h2>
-        <p>
-            Soy una persona muy curiosa y me gustan los retos, así que siempre estoy trabajando en todo tipo de proyectos personales.
-        </p>
-        <p>
-            Estas son algunas de las tecnologías y frameworks que he utilizado en los proyectos, en orden de más utilizados a menos utilizados:
-        </p>
-        <div class="flex justify-evenly w-full">
-            <article class="flex flex-col gap-4">
-                <h3>En proyectos profesionales</h3>
-                <ul>
-                    <li><RestLogo /></li>
-                    <li><TypeScriptLogo /></li>
-                    <li><JavaScriptLogo /></li>
-                    <li><ReactLogo /></li>
-                    <li><GraphQLLogo /></li>
-                    <li><NodeLogo /></li>
-                    <li><NextLogo /></li>
-                </ul>
-            </article>
-            <article class="flex flex-col gap-4">
-                <h3>En proyectos personales</h3>
-                <ul>
-                    <li><TypeScriptLogo /></li>
-                    <li><JavaScriptLogo /></li>
-                    <li><TailwindLogo /></li>
-                    <li><AngularLogo /></li>
-                    <li><AndroidLogo /></li>
-                    <li><FirebaseLogo /></li>
-                    <li><NodeLogo /></li>
-                    <li><GodotLogo /></li>
-                    <li><FlutterLogo /></li>
-                    <li><NextLogo /></li>
-                    <li><AstroLogo /></li>
-                </ul>
-            </article>
-        </div>
-        <div id="current-projects" class="flex flex-col justify-center items-center">
-            <h3>Proyectos entre manos</h3>
-            <div class="flex w-full mt-4">
-                <div class="flex-1">
+        <div class="flex flex-col lg:flex-row lg:gap-12 items-start">
+            <div class="flex flex-col justify-evenly w-full">
+                <article class="flex flex-col gap-4">
                     <p>
-                        Me ha costado algún tiempo, pero al final me he decidido por el desarrollo de videojuegos porque combinan todas mis pasiones:
+                        Soy una persona muy curiosa y me gustan los retos, siempre estoy trabajando en  proyectos personales.
                     </p>
-                    <ul class="flex gap-x-4 flex-wrap">
-                        <li>La programación</li>
-                        <li>La creatividad</li>
-                        <li>La ilustración</li>
-                        <li>La animación</li>
-                        <li>La escritura</li>
-                        <li>El storytelling</li>
-                        <li>La resolución de problemas complejos</li>
+                    <p>
+                        Algunas tecnologías que he utilizado en esos proyectos, en orden de más utilizados a menos:
+                    </p>
+                    <ul class="logo-list">
+                        <li><TypeScriptLogo /></li>
+                        <li><JavaScriptLogo /></li>
+                        <li><TailwindLogo /></li>
+                        <li><AngularLogo /></li>
+                        <li><AndroidLogo /></li>
+                        <li><FirebaseLogo /></li>
+                        <li><NodeLogo /></li>
+                        <li><GodotLogo /></li>
+                        <li><FlutterLogo /></li>
+                        <li><NextLogo /></li>
+                        <li><AstroLogo /></li>
                     </ul>
-                </div>
-                <div class="flex-1">
-                    <p>Y por eso estoy trabajando en:</p>
-                    <ul>
-                        <li>Un aRPG que estoy desarrollando con Godot Engine</li>
-                        <li>Un jRPG que estoy desarrollando con RPG Maker MV</li>
-                    </ul>
-                </div>
+                </article>
+            </div>
+            <div id="current-projects" class="flex flex-col mt-4 lg:mt-0">
+                <h3>Entre manos</h3>
+                <p>
+                    Me ha costado algún tiempo, pero al final me he decidido por el desarrollo de videojuegos porque combinan todas mis pasiones:
+                </p>
+                <ul class="pills">
+                    <li>programación</li>
+                    <li>creatividad</li>
+                    <li>ilustración</li>
+                    <li>animación</li>
+                    <li>escritura</li>
+                    <li>storytelling</li>
+                    <li>resolución de problemas complejos</li>
+                </ul>
+                <p class="mt-4">Por eso estoy trabajando en:</p>
+                <ul>
+                    <li>Un aRPG que estoy desarrollando con Godot Engine</li>
+                    <li>Un jRPG que estoy desarrollando con RPG Maker MV</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -85,30 +65,16 @@ import AstroLogo from "./logos/AstroLogo.astro";
 
 <style>
     h3 {
-        @apply text-2xl font-bold text-center;
-    }
-
-    article {
-        ul {
-            @apply list-none grid grid-cols-4 gap-4;
-
-            li {
-                @apply w-24;
-            }
-
-            svg {
-                @apply h-12 w-12 mx-auto;
-            }
-
-            figcaption {
-                @apply text-sm text-center;
-            }
-        }
+        @apply lg:text-2xl font-bold text-center;
     }
 
     #current-projects {
-        p {
-            @apply w-full text-left;
+        ul.pills {
+            @apply list-none flex flex-wrap gap-2;
+
+            li {
+                @apply bg-blue-500 text-white px-2 py-1 rounded-full text-xs;
+            }
         }
         ul {
             @apply list-disc list-inside mt-2 ml-4;

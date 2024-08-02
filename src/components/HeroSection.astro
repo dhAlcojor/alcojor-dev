@@ -1,11 +1,18 @@
 ---
 import WizelineLogo from "./logos/WizelineLogo.astro";
+import TypeScriptLogo from "./logos/TypeScriptLogo.astro";
+import ReactLogo from "./logos/ReactLogo.astro";
+import RestLogo from "./logos/RestLogo.astro";
+import NextLogo from "./logos/NextLogo.astro";
+import GraphQLLogo from "./logos/GraphQLLogo.astro";
+import NodeLogo from "./logos/NodeLogo.astro";
+import JavaScriptLogo from "./logos/JavaScriptLogo.astro";
 ---
 <section id="home" class="bg-gradient-to-b from-yellow-300 to-orange-400 text-white">
-    <div class="flex justify-center items-center gap-8">
-        <img class="h-48 w-48 mr-4 border-2 border-black rounded-full" src="/images/profile.png" alt="Foto de perfil de Daniel H. Alcojor"/>
-        <div class="max-w-[67%] text-black flex flex-col gap-4">
-            <h2>Hola, soy Daniel H. Alcojor</h2>
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <img class="h-10 w-10 lg:h-48 lg:w-48 mr-4 border-2 border-black rounded-full" src="/images/profile.png" alt="Foto de perfil de Daniel H. Alcojor"/>
+        <div class="lg:max-w-[67%] text-black flex flex-col gap-4">
+            <h2 class="text-center">Hola, soy Daniel H. Alcojor</h2>
             <p>
                 Soy un desarrollador web senior, con <span id="years" class="text-2xl text-red-600 font-bold">17+</span> años de experiencia en desarrollo de aplicaciones web, móviles, y APIs.
             </p>
@@ -18,15 +25,19 @@ import WizelineLogo from "./logos/WizelineLogo.astro";
                     <WizelineLogo />
                 </a>.
             </p>
+            <p>Estas son las principales tecnologías que utilizo en mi trabajo:</p>
+            <ul class="logo-list">
+                <li><RestLogo /></li>
+                <li><TypeScriptLogo /></li>
+                <li><JavaScriptLogo /></li>
+                <li><ReactLogo /></li>
+                <li><GraphQLLogo /></li>
+                <li><NodeLogo /></li>
+                <li><NextLogo /></li>
+            </ul>
         </div>
     </div>
 </section>
-
-<style>
-    p {
-        @apply w-full text-left;
-    }
-</style>
 
 <script>
     import {diffYears} from "@formkit/tempo";
