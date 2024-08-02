@@ -1,5 +1,40 @@
+---
+import EmailLogo from "./logos/EmailLogo.astro";
+import GitHubLogo from "./logos/GithubLogo.astro";
+import LinkedInLogo from "./logos/LinkedinLogo.astro";
+import TwitterLogo from "./logos/TwitterLogo.astro";
+---
 <section id="contact" class="bg-gradient-to-b from-purple-500 to-blue-600">
     <div class="flex flex-col justify-center items-center gap-8">
         <h2>Contacto</h2>
+        <p class="w-1/2 mx-auto text-center">
+        Si tienes alguna pregunta, necesitas ayuda, o simplemente me quieres pagar por escribir código, tienes todas estas opciones:
+        </p>
+        <div>
+            <ul class="flex gap-4">
+                <li><a href="mailto:danheralc@gmail.com"><EmailLogo /></a></li>
+                <li><a href="https://github.com/dhAlcojor" target="_blank"><GitHubLogo /></a></li>
+                <li><a href="https://www.linkedin.com/in/dhalcojor" target="_blank"><LinkedInLogo /></a></li>
+                <li><a href="https://twitter.com/alcojor_dev" target="_blank"><TwitterLogo /></a></li>
+            </ul>
+        </div>
     </div>
 </section>
+
+<style>
+    ul {
+        @apply list-none grid grid-cols-4 gap-4;
+
+        li {
+            @apply w-24 hover:scale-150 transition-transform duration-300;
+        }
+
+        svg {
+            @apply h-12 w-12 mx-auto;
+        }
+
+        figcaption {
+            @apply text-sm text-center;
+        }
+    }
+</style>
