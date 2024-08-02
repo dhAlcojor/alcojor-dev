@@ -106,15 +106,15 @@ section#home, section#projects {
     const menuCloseButtonIcon = document.getElementById('menu-close-button-icon');
     const nav = document.getElementById('page-navigation');
     const navLinks = document.querySelectorAll('#page-navigation a');
-    menuButton.addEventListener('click', () => {
-        menuButton.classList.toggle('active');
-        menuButtonIcon.classList.toggle('hidden');
-        menuCloseButtonIcon.classList.toggle('hidden');
-        nav.classList.toggle('hidden');
+    menuButton?.addEventListener('click', () => {
+        menuButton?.classList.toggle('active');
+        menuButtonIcon?.classList.toggle('hidden');
+        menuCloseButtonIcon?.classList.toggle('hidden');
+        nav.classList?.toggle('hidden');
     });
-    navLinks.forEach((navLink) => {
-        navLink.addEventListener('click', () => {
-            menuButton.click();
+    navLinks?.forEach((navLink) => {
+        navLink?.addEventListener('click', () => {
+            menuButton?.click();
         });
     });
 </script>
