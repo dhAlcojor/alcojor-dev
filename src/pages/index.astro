@@ -39,7 +39,7 @@ import ContactSection from "../components/ContactSection.astro";
         threshold: 0.5, // halfway through
     };
 
-    let handleIntersection = (entries) => {
+    let handleIntersection = (entries: IntersectionObserverEntry[]) => {
         navLinks.forEach((navLink) => {
             navLink.classList.remove('active');
         });
