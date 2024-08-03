@@ -2,11 +2,9 @@ import {defineConfig} from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 
-import libAnalytics from "@astrolib/analytics";
-
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), libAnalytics()],
+    integrations: [tailwind()],
     output: "server",
     adapter: vercel()
 });

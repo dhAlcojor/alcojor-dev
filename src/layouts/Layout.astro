@@ -1,5 +1,4 @@
 ---
-import {GoogleAnalytics} from '@astrolib/analytics';
 interface Props {
   title: string;
 }
@@ -43,7 +42,6 @@ const {title} = Astro.props;
     </button>
 </header>
 <slot/>
-<GoogleAnalytics id="G-E8BH4BWK7G"/>
 </body>
 </html>
 <style is:global>
@@ -128,4 +126,17 @@ const {title} = Astro.props;
       menuButton?.click();
     });
   });
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8BH4BWK7G" is:inline></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-E8BH4BWK7G');
 </script>
