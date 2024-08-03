@@ -16,71 +16,79 @@ const {title} = Astro.props;
     <title>{title}</title>
 </head>
 <body>
-    <header class="w-full py-4 px-4 lg:px-6 flex items-center justify-between fixed top-0">
-        <h1 class="text-2xl lg:text-5xl font-bold font-permanent-marker">
-            <img class="h-5 w-5 mr-1 lg:h-8 lg:w-8 inline-block align-baseline lg:-mr-2 border-[1px] border-black rounded-full" src="/images/profile.webp" alt="Foto de perfil de Daniel H. Alcojor"/>
-            <a href="/">Daniel H. Alcojor</a>
-        </h1>
-        <nav id="page-navigation" class="hidden absolute top-14 left-0 right-0 -mt-[1px] lg:mt-0 bg-white/20 lg:bg-transparent border-y-[1px] border-y-black lg:border-0 backdrop-filter backdrop-blur-lg lg:static lg:block lg:backdrop-none">
-            <ul class="flex flex-col gap-4 lg:flex-row lg:gap-0">
-                <li><a href="/#home">Inicio</a></li>
-                <li><a href="/#projects">Proyectos</a></li>
-                <li><a href="/#about">Acerca de</a></li>
-                <li><a href="/#contact">Contacto</a></li>
-            </ul>
-        </nav>
-        <button id="menu-button" class="h-10 w-10 p-1 rounded-t-lg lg:hidden" title="Abrir o Cerrar el menú">
-            <svg id="menu-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/></svg>
-            <svg id="menu-close-button-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/></svg>
-        </button>
-    </header>
-    <slot/>
+<header class="w-full py-4 px-4 lg:px-6 flex items-center justify-between fixed top-0">
+    <h1 class="text-2xl lg:text-5xl font-bold font-permanent-marker">
+        <img class="h-5 w-5 mr-1 lg:h-8 lg:w-8 inline-block align-baseline lg:-mr-2 border-[1px] border-black rounded-full"
+             src="/images/profile.webp" alt="Foto de perfil de Daniel H. Alcojor"/>
+        <a href="/">Daniel H. Alcojor</a>
+    </h1>
+    <nav id="page-navigation"
+         class="hidden absolute top-14 left-0 right-0 -mt-[1px] lg:mt-0 bg-white/20 lg:bg-transparent border-y-[1px] border-y-black lg:border-0 backdrop-filter backdrop-blur-lg lg:static lg:block lg:backdrop-none">
+        <ul class="flex flex-col gap-4 lg:flex-row lg:gap-0">
+            <li><a href="/#home">Inicio</a></li>
+            <li><a href="/#projects">Proyectos</a></li>
+            <li><a href="/#about">Acerca de</a></li>
+            <li><a href="/#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <button id="menu-button" class="h-10 w-10 p-1 rounded-t-lg lg:hidden" title="Abrir o Cerrar el menú">
+        <svg id="menu-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/>
+        </svg>
+        <svg id="menu-close-button-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                  d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z"/>
+        </svg>
+    </button>
+</header>
+<slot/>
 </body>
 </html>
 <style is:global>
-@font-face {
-    font-family: 'Permanent Marker';
-    src: url('/fonts/PermanentMarker-Regular.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-body {
-    @apply font-sans;
-    font-size: 14pt;
-}
-
-nav#page-navigation {
-    li {
-        @apply w-full lg:w-auto;
-    }
-}
-
-p {
-    @apply w-full text-left leading-tight lg:w-1/2 lg:mx-auto lg:text-center lg:leading-normal;
-}
-
-ul.logo-list {
-    @apply list-none flex flex-wrap gap-2 justify-center lg:gap-4;
-
-    li {
-        @apply w-14 lg:w-24;
+    @font-face {
+        font-family: 'Permanent Marker';
+        src: url('/fonts/PermanentMarker-Regular.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
     }
 
-    svg {
-        @apply h-8 w-8 lg:h-12 lg:w-12 mx-auto;
+    body {
+        @apply font-sans;
+        font-size: 14pt;
     }
 
-    figcaption {
-        @apply text-xs lg:text-sm text-center;
+    nav#page-navigation {
+        li {
+            @apply w-full lg:w-auto;
+        }
     }
-}
 
-section#home, section#projects {
     p {
-        @apply lg:w-full lg:text-left;
+        @apply w-full text-left leading-tight lg:w-1/2 lg:mx-auto lg:text-center lg:leading-normal;
     }
-}
+
+    ul.logo-list {
+        @apply list-none flex flex-wrap gap-2 justify-center lg:gap-4;
+
+        li {
+            @apply w-14 lg:w-24;
+        }
+
+        svg {
+            @apply h-8 w-8 lg:h-12 lg:w-12 mx-auto;
+        }
+
+        figcaption {
+            @apply text-xs lg:text-sm text-center;
+        }
+    }
+
+    section#home, section#projects {
+        p {
+            @apply lg:w-full lg:text-left;
+        }
+    }
 </style>
 <style>
     nav a {
@@ -94,6 +102,7 @@ section#home, section#projects {
             @apply bg-white/70 text-black;
         }
     }
+
     button#menu-button {
         &.active {
             @apply outline-none bg-black border-b-[1px] border-b-black z-10 text-white;
@@ -101,20 +110,33 @@ section#home, section#projects {
     }
 </style>
 <script>
-    const menuButton = document.getElementById('menu-button');
-    const menuButtonIcon = document.getElementById('menu-button-icon');
-    const menuCloseButtonIcon = document.getElementById('menu-close-button-icon');
-    const nav = document.getElementById('page-navigation');
-    const navLinks = document.querySelectorAll('#page-navigation a');
-    menuButton?.addEventListener('click', () => {
-        menuButton?.classList.toggle('active');
-        menuButtonIcon?.classList.toggle('hidden');
-        menuCloseButtonIcon?.classList.toggle('hidden');
-        nav?.classList.toggle('hidden');
+  const menuButton = document.getElementById('menu-button');
+  const menuButtonIcon = document.getElementById('menu-button-icon');
+  const menuCloseButtonIcon = document.getElementById('menu-close-button-icon');
+  const nav = document.getElementById('page-navigation');
+  const navLinks = document.querySelectorAll('#page-navigation a');
+  menuButton?.addEventListener('click', () => {
+    menuButton?.classList.toggle('active');
+    menuButtonIcon?.classList.toggle('hidden');
+    menuCloseButtonIcon?.classList.toggle('hidden');
+    nav?.classList.toggle('hidden');
+  });
+  navLinks?.forEach((navLink) => {
+    navLink?.addEventListener('click', () => {
+      menuButton?.click();
     });
-    navLinks?.forEach((navLink) => {
-        navLink?.addEventListener('click', () => {
-            menuButton?.click();
-        });
-    });
+  });
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8BH4BWK7G" is:inline></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-E8BH4BWK7G');
 </script>
