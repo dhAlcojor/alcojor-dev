@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroSection from "../components/HeroSection.astro";
-import ProjectsSection from "../components/ProjectsSection.astro";
-import AboutSection from "../components/AboutSection.astro";
-import ContactSection from "../components/ContactSection.astro";
+import HeroSection from "../sections/HeroSection.astro";
+import ExperienceSection from "../sections/ExperienceSection.astro";
+import ProjectsSection from "../sections/ProjectsSection.astro";
+import AboutSection from "../sections/AboutSection.astro";
+import ContactSection from "../sections/ContactSection.astro";
 ---
 
 <Layout title="Daniel Hernández Alcojor - Desarrollador Full-Stack Senior">
-    <main class="snap-y snap-mandatory h-screen w-full overflow-y-auto overflow-x-hidden scroll-smooth">
+    <main class="w-full scroll-smooth mt-16">
         <HeroSection />
+        <ExperienceSection />
         <ProjectsSection />
         <AboutSection />
         <ContactSection />
@@ -18,7 +20,7 @@ import ContactSection from "../components/ContactSection.astro";
 <style>
     main {
         section {
-            @apply h-screen w-full snap-start snap-always py-8 px-4;
+            @apply w-full py-8 px-4;
 
             > div {
                 @apply lg:max-w-[1200px] h-full mx-auto flex justify-center items-center gap-4;
@@ -27,6 +29,22 @@ import ContactSection from "../components/ContactSection.astro";
             h2 {
                 @apply text-2xl lg:text-4xl font-bold;
             }
+        }
+
+        section:nth-child(1) {
+            @apply bg-gradient-to-b from-yellow-300 to-orange-400;
+        }
+        section:nth-child(2) {
+            @apply bg-gradient-to-b from-orange-400 to-red-500;
+        }
+        section:nth-child(3) {
+            @apply bg-gradient-to-b from-red-500 to-purple-500;
+        }
+        section:nth-child(4) {
+            @apply bg-gradient-to-b from-purple-500 to-blue-600;
+        }
+        section:nth-child(5) {
+            @apply bg-gradient-to-b from-blue-600 to-green-500;
         }
     }
 </style>

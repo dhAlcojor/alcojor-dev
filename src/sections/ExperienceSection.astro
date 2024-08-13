@@ -1,0 +1,117 @@
+<section id="experience" class="flex flex-col justify-center items-center gap-8">
+    <div class="flex flex-col w-full lg:justify-center lg:items-center gap-8">
+        <header>
+            <h2>Experiencia</h2>
+        </header>
+        <article data-start-date="2021-10-25">
+            <header>
+                <h3>Ingeniero de Software (React)</h3>
+                <span class="company">Wizeline</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2019-02-01" data-end-date="2021-10-24">
+            <header>
+                <h3>Desarrollador Front-End en el Equipo de Arquitectura de Vocento</h3>
+                <span class="company">atSistemas</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2018-03-01" data-end-date="2019-01-31">
+            <header>
+                <h3>Desarrollador Full-Stack</h3>
+                <span class="company">Sngular</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2016-07-01" data-end-date="2018-02-28">
+            <header>
+                <h3>Desarrollador Full-Stack</h3>
+                <span class="company">Solera Global Data & Content</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2015-08-01" data-end-date="2016-06-30">
+            <header>
+                <h3>Desarrollador Front-End</h3>
+                <span class="company">Gemalto</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2014-08-01" data-end-date="2015-07-31">
+            <header>
+                <h3>Analista Programador</h3>
+                <span class="company">Sopra Steria</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2010-11-01" data-end-date="2014-07-31">
+            <header>
+                <h3>Desarrollador JEE Senior</h3>
+                <span class="company">Software AG</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2010-04-01" data-end-date="2010-10-31">
+            <header>
+                <h3>Desarrollador J2EE Senior</h3>
+                <span class="company">Capgemini</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+        <article data-start-date="2006-08-01" data-end-date="2009-12-31">
+            <header>
+                <h3>Desarrollador J2EE Junior</h3>
+                <span class="company">Capgemini</span>
+                <span class="dates"></span>
+            </header>
+        </article>
+    </div>
+</section>
+
+<style>
+    article {
+      @apply w-full text-left border-2 border-white rounded-lg p-4;
+
+        header {
+            h3 {
+                @apply text-xl font-bold;
+            }
+            span {
+                @apply text-base;
+
+                &.company {
+                    @apply block font-bold;
+                }
+            }
+        }
+    }
+</style>
+<script>
+    import {diffMonths, format} from "@formkit/tempo";
+    const $ = ( selector: string, obj?: Element) => (obj || document).querySelector(selector);
+    const $$ = (selector: string, obj?: Element) => (obj || document).querySelectorAll(selector);
+    const getDate = (dateString: string) => {
+        const [year, month, day] = dateString.split('-').map(Number);
+        return new Date(year, month - 1, day);
+    }
+
+    const articles = $$('article');
+    articles.forEach((article) => {
+        const startDateString = article.getAttribute('data-start-date') ?? '';
+        const endDateString = article.getAttribute('data-end-date');
+        const startDate = getDate(startDateString);
+        const endDate = endDateString ? getDate(endDateString) : new Date();
+        const totalMonths = diffMonths(endDate, startDate);
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12 + 1;
+
+        const dates = $('.dates', article);
+        const startDateFormatted = `${format(startDate, 'MMM')} ${format(startDate, 'YYYY')}`;
+        const endDateFormatted = endDateString ? `${format(endDate, 'MMM')} ${format(endDate, 'YYYY')}` : 'Actualidad';
+        const yearsFormatted = years > 0 ? `${years} A` : undefined;
+        const monthsFormatted = months > 0 ? `${months} M` : undefined;
+        const timeFormatted = yearsFormatted && monthsFormatted ? `${yearsFormatted}, ${monthsFormatted}` : yearsFormatted || monthsFormatted;
+        if (dates) dates.innerHTML = `${startDateFormatted} - ${endDateFormatted} (${timeFormatted})`;
+    })
+</script>
